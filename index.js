@@ -5,7 +5,10 @@ var numberDrumButton = document.querySelectorAll(".drum").length;
 for (var i = 0; i < numberDrumButton; i++) {
   document.querySelectorAll(".drum")[i].addEventListener("click", function () {
     var value = this.innerHTML;
+
     makeSound(value);
+    
+    buttonAnimation(value);
   });  
 }
 
@@ -13,6 +16,7 @@ for (var i = 0; i < numberDrumButton; i++) {
 //keypres event listener
 document.addEventListener("keypress", function(event){
     makeSound(event.key);
+    buttonAnimation(event.key);
 });
 
 
@@ -48,5 +52,16 @@ function makeSound(event){
             audio7.play();
             break;
     }
+}
+
+
+// button animation
+function buttonAnimation(btn){
+    var activeButton = document.querySelector("."+btn);
+    activeButton.classList.add("pressed");
+
+    setTimeout(function (){
+        activeButton.classList.remove("pressed");
+    }, 200);
 }
 
