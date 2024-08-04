@@ -64,4 +64,3 @@ function buttonAnimation(btn){
         activeButton.classList.remove("pressed");
     }, 200);
 }
-
